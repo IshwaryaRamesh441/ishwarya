@@ -1,0 +1,17 @@
+{% extends 'index.html'%}
+
+{%block title %}home{% endblock %}
+{%block content %}
+{% if msg %}
+    <h3>{{msg}}</h3>
+{% endif %}
+<form action="login" method="post">
+    {% csrf_token%}
+    <label> Username</label>         
+    <input type="text" name="Username" />
+    <label> Password</label>         
+    <input type="password" name="Password" />
+    <input type="submit" /> 
+    <h4>Don't have an account?<a href="signup">Create Account Here</a></h4>
+</form>
+{% endblock%}

@@ -1,0 +1,60 @@
+{% extends 'index.html'%}
+{% load static%}
+
+{%block title %}home{% endblock %}
+{%block content %}
+
+<style>
+    .title{
+        margin:50px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .picture{
+        width:300px;
+        border-radius:50%;
+        height:200px;
+    }
+    .pt-3{
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .price{
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .orders{
+        position: relative;
+        top: 100px;
+    }
+   
+</style>
+
+
+
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-md-8 text-center">
+            <h2 class="title" >BREAKFAST</h2>
+            <div class="row">
+                {% for breakfast in breakfasts %}
+                <div class="col-md-6 p-4">
+                    <img  class="picture" src="{{breakfast.bimage.url}}"> 
+                    <h3 class="pt-3" id="brea{{breakfast.id}}">{{breakfast.name}}</h3>
+                    
+                    <div>
+                    <button class="btn-info mt-3"  onclick="addBreakfast('{{breakfast.id}}')">Add to Cart</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div  class="col md-4 orders">
+            <div class="bg-dark p-4 rounded text-light ">
+                <h2 class="text-center">Order List</h2>
+                <ul id="bcart" class="text-left"></ul>
+                <h4 class="text-right" id="btotal">Total: Rs.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/order.js' %}"></script>
+{% endblock %}

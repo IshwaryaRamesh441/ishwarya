@@ -1,0 +1,19 @@
+<div class="container-fluid p-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 p-4 bg-dark text-light text-center">
+            <h3>Signup</h3>
+            <form method="POST" action="foodmenu">
+                {% csrf_token %}
+                <label> Username</label>         
+                <input type="text" name="Username"/>
+                <label> Password</label>         
+                <input type="password" name="Password"/>
+                <label>Confirm Password</label>         
+                <input type="password" name="ConfPassword"/>
+                <input type="submit"/> 
+            </form>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+ </div>
